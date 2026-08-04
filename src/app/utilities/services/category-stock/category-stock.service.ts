@@ -10,7 +10,7 @@ import { CategorySale } from '../../models/categorySale';
 export class StockCategoryService {
   private _http = inject(HttpClient)
   
-  url:string = 'https://localhost:7216';
+  url:string = 'https://localhost:5001';
   
   constructor() { }
 

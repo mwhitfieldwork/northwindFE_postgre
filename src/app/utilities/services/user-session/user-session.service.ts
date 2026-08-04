@@ -12,7 +12,7 @@ export class UserSessionService {
   private userSubject = new BehaviorSubject<User | null>(null);
   public user$: Observable<User | null> = this.userSubject.asObservable();
 
-  url:string = 'https://localhost:7216';
+  url:string = 'https://localhost:5001';
   errorMessage:any;
   
   public get currentUser(): User | null {

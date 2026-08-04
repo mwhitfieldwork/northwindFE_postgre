@@ -8,7 +8,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class DashboardService {
   private _http = inject(HttpClient)
-  url:string = 'https://localhost:7216';
+  url:string = 'https://localhost:5001';
   errorMessage:any;
   constructor() { }
 

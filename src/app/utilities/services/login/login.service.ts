@@ -14,7 +14,7 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class LoginService {
-  url:string = 'https://localhost:7216';
+  url:string = 'https://localhost:5001';
   errorMessage:any;
   private _http = inject(HttpClient);
 
@@ -24,7 +24,7 @@ export class LoginService {
     let url = `${this.url}/api/Login/AddUser`;
     let newLogin = JSON.stringify(authentication)
     var response = this._http.post<Authentication>(url, newLogin, httpOptions);
-    console.log(url);
+    console.log(url,1);
     return response;
   }
 
@@ -32,7 +32,7 @@ export class LoginService {
     let url = `${this.url}/api/Login`;
     let newLogin = JSON.stringify(authentication)
     var response = this._http.post<Authentication>(url, newLogin, httpOptions);
-    console.log(url);
+    console.log(url, 2);
     return response;
   }
 }

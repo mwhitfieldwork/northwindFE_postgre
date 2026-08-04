@@ -10,7 +10,7 @@ import { CustomerProducts } from '../../models/customerProducts.model';
 export class CutomerService {
   private _http = inject(HttpClient)
   
-  url:string = 'https://localhost:7216';
+  url:string = 'https://localhost:5001';
 
   constructor() { }
 
