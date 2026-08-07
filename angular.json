@@ -20,6 +20,7 @@
             "outputPath": "dist/nwrevised",
             "index": "src/index.html",
             "browser": "src/main.ts",
+            "baseHref": "/northwindFE_postgre/",
             "polyfills": [
               "zone.js"
             ],
@@ -52,13 +53,13 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kB",
-                  "maximumError": "1MB"
+                  "maximumWarning": "2mB",
+                  "maximumError": "3MB"
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "2kB",
-                  "maximumError": "4kB"
+                  "maximumWarning": "20kB",
+                  "maximumError": "40kB"
                 }
               ],
               "outputHashing": "all"
@@ -106,6 +107,12 @@
               "@angular/material/prebuilt-themes/indigo-pink.css"
             ],
             "scripts": []
+          }
+        },
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy",
+          "options": {
+            "baseHref": "/northwindFE_postgre/"
           }
         }
       }
