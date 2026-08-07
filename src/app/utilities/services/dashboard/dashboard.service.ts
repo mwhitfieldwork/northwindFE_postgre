@@ -16,7 +16,7 @@ export class DashboardService {
     return this._http.get<BarOrderDetail[]>(`${this.url}/Dashboard/totals`)
     .pipe( 
       tap(items => {
-        console.log(this.url, "ATTTENTION: POST/LOCAL URL!!!!")
+        console.log(this.url,)
       }),
       catchError(this.handleError),
     )
