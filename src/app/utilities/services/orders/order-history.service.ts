@@ -2,13 +2,14 @@ import { inject, Injectable } from '@angular/core';
 import { OrderDetails } from '../../models/order-detail';
 import { HttpClient } from '@angular/common/http';
 import { catchError, Observable, tap, throwError } from 'rxjs';
+import { environment } from '../../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class OrderHistoryService {
   private _http = inject(HttpClient)
-  url:string = 'https://localhost:5001';
+  url:string = environment.apiUrl;
   errorMessage:any;
   
   constructor() { }
