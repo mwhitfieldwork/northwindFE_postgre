@@ -3,6 +3,7 @@ import { Authentication } from '../../models/authentication';
 import { BehaviorSubject, catchError, Observable, tap, throwError } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { User } from '../../models/user.model'
+import { environment } from '../../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,7 @@ export class UserSessionService {
   private userSubject = new BehaviorSubject<User | null>(null);
   public user$: Observable<User | null> = this.userSubject.asObservable();
 
-  url:string = 'https://localhost:5001';
+  url:string = environment.apiUrl;
   errorMessage:any;
   
   public get currentUser(): User | null {

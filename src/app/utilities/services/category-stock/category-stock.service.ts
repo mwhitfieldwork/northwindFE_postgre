@@ -3,6 +3,7 @@ import { Injectable, inject } from '@angular/core';
 import { catchError, Observable, tap, throwError} from 'rxjs';
 import { Category } from '../../models/category';
 import { CategorySale } from '../../models/categorySale';
+import { environment } from '../../../../environments/environment.prod';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,7 @@ import { CategorySale } from '../../models/categorySale';
 export class StockCategoryService {
   private _http = inject(HttpClient)
   
-  url:string = 'https://localhost:5001';
+  url:string = environment.apiUrl;
   
   constructor() { }
 
