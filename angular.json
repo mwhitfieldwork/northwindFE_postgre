@@ -29,6 +29,7 @@
             "assets": [
               "src/nw-icon.ico",
               "src/assets",
+              "src/404.html",
               {
                 "glob": "**/*",
                 "input": "public"
