@@ -13,29 +13,31 @@ import { Error404Component } from './shared/error/error404/error404.component';
 import { Error500Component } from './shared/error/error500/error500.component';
 
 export const routes: Routes = [
-    {path: '', component:LoginComponent},
-    {path: 'dashboard',
-    component:DashComponent, 
-    resolve: { data: DashboardResolver }
+    { path: '', component: LoginComponent },
+  
+    { path: 'dashboard', component: DashComponent, resolve: { data: DashboardResolver } },
+  
+    { path: 'calc', component: CalculatorComponent, canActivate: [CalculateGuard] },
+  
+    { path: 'work', component: EmployeesComponent },
+  
+    { path: 'stock', component: StockInventoryComponent },
+  
+    { path: 'todo', component: TodoComponent },
+  
+    {
+      path: 'products',
+      component: ProductTableComponent,
+      children: [
+        { path: 'details/new', component: ProductTableDetailComponent },
+        { path: 'details/:id', component: ProductTableDetailComponent },
+      ]
     },
-    {path:'calc', component:CalculatorComponent, 
-        canActivate: [CalculateGuard],
-    },
-    {path:'404', component:Error404Component, 
-        canActivate: [CalculateGuard],
-    },
-    {path:'500', component:Error500Component, 
-        canActivate: [CalculateGuard],
-    },        
-    {path:'work', component:EmployeesComponent},
-    {path: 'stock', component: StockInventoryComponent},
-    {path: 'todo', component: TodoComponent},
-    {path: 'products', component: ProductTableComponent,
-        children: [
-            {path: 'details/new', component: ProductTableDetailComponent},
-            {path: 'details/:id', component: ProductTableDetailComponent},
-        ]
-    },
-
-    { path: '**', redirectTo: 'dashboard' }
-]
+  
+    { path: '404', component: Error404Component },
+    { path: '500', component: Error500Component },
+  
+    // wildcard LAST
+    { path: '**', component: Error404Component }
+  ];
+  
