@@ -20,7 +20,7 @@
             "outputPath": "dist/nwrevised",
             "index": "src/index.html",
             "browser": "src/main.ts",
-            "baseHref": "/northwindFE_postgre/",
+            "baseHref": "/",
             "polyfills": [
               "zone.js"
             ],
