@@ -12,109 +12,78 @@ Chart.register(BarController, BarElement, CategoryScale, LinearScale, Tooltip, L
   templateUrl: './bar-chart.component.html',
   styleUrl: './bar-chart.component.scss'
 })
-export class BarChartComponent implements OnInit{
-  data:number[] = [125,100, 50, 75, 200,125,80,65, 120, 100,300,120];
-  xlabels:string[] = [  
-    "Backpack",
-    " Journal",
-    "Pouch",
-    "Flask",
-    "Tote",
-    "Roll",
-    "Binder",
-    "Wrap",
-    "Satchel",
-    "Case",
-    "Crate",
-    "Organizer"
-  ];
-
-  barChartType: 'bar' = 'bar';
-  barChartData?: ChartData<'bar'> = {
-    labels: this.xlabels.slice(0,5),
+export class BarChartComponent {
+  public weeklyChartData = {
+    labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
     datasets: [
       {
-        label: 'categories',
-        data: this.data.slice(0,5),
-        barThickness: 36,
-        maxBarThickness: 36,
-        backgroundColor: [
-          '#e6c9f5', // violet-border
-          '#c4a2f3', // violet-border-alt
-          '#a855f7', // violet
-          '#6b21a8', // violet-dark
-          '#581c87', // violet-darker
-          '#4c1d95'  // violet-deep
-        ]
+        label: 'Green Trend',
+        data: [95, 98, 92, 100, 105, 102, 110],
+        backgroundColor: '#e6c9f5',
+        tension: 0.4,
+        borderWidth: 3
+      },
+      {
+        label: 'Red Trend',
+        data: [85, 88, 90, 87, 92, 95, 93],
+        backgroundColor: '#c4a2f3',
+        tension: 0.4,
+        borderWidth: 3
+      },
+      {
+        label: 'Blue Trend',
+        data: [75, 80, 78, 82, 85, 88, 90], 
+        backgroundColor: '#a855f7',
+        tension: 0.4,
+        borderWidth: 3
       }
     ]
   };
-
-  barChartOptions!: ChartOptions<'bar'>;
-
-  ngOnInit(): void {
-    this.displayData('');
-  }
-
-  displayData(scope:string){
-    console.log(scope);
-    this.barChartOptions = {
-      responsive: true,
-      maintainAspectRatio: false,
-      indexAxis: 'y', // horizontal bars
-    
-      scales: {
-        x: {
-          type: 'linear',
-          grid: { display: false },
-          ticks: {
-            color: '#999',
-            font: { size: 12, weight: 'lighter' }
-          }
-        },
-        y: {
-          type: 'category',
-          grid: { color: '#eee' },
-          ticks: {
-            color: '#999',
-            font: { size: 12 }
-          }
-        }
+  
+  public weeklyChartOptions: ChartOptions = {
+    responsive: true,
+    scales: {
+      y: {
+        min: 70,
+        max: 110,
+        grid: { display: false }
       },
-    
-      elements: {
-        bar: {
-          borderRadius: {
-            topRight: 15,
-            topLeft: 15,
-            bottomRight: 15,
-            bottomLeft:15
-          },
-          borderSkipped: 'left'
-        }
-      },
-    
-      plugins: {
-        legend: {
-          position: 'top',
-          labels: {
-            usePointStyle: true,
-            pointStyle: 'circle',
-            color: '#666',
-            font: { size: 13, weight: 'lighter' }
-          }
-        },
-        tooltip: {
-          backgroundColor: '#fff',
-          titleColor: '#333',
-          bodyColor: '#333',
-          borderColor: '#ddd',
-          borderWidth: 0,
-          padding: 12,
-          cornerRadius: 6,
-          displayColors: false
-        }
+      x: {
+        grid: { display: false }
       }
-    };    
-  }
+    },
+    plugins: {
+      legend: { display: false }
+    }
+  };
+  
+  public monthlyAreaData = {
+    labels: Array.from({ length: 10 }, (_, i) => `Jul ${i + 1}`),
+    datasets: [
+      {
+        label: 'Monthly Trend',
+        data: [
+          20, 25, 22, 30, 28, 35, 40, 38, 45, 50,
+          48, 55, 60, 58, 62, 65, 70, 68, 75, 80,
+          78, 85, 90, 88, 95, 100, 98, 105, 110, 115, 120
+        ],
+        borderColor: '#673AB7',
+        backgroundColor: 'rgba(103, 58, 183, 0.25)',
+        fill: true,
+        tension: 0.4
+      }
+    ]
+  };
+  
+  public monthlyAreaOptions: ChartOptions = {
+    responsive: true,
+    plugins: {
+      legend: { display: false }
+    },
+    scales: {
+      x: { grid: { display: false } },
+      y: { grid: { display: false } }
+    }
+  };
+  
 }
