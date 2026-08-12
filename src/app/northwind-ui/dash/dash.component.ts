@@ -55,33 +55,15 @@ export class DashComponent implements OnInit {
   isLoading = signal(true);
 
 
-  constructor(private route: ActivatedRoute) {
-    //read signal value, angular doesn't subscribe to the signal in the calling class
-    console.log(this.currentStatus_signal(), '--Signal value, no subscription--');
-
-    //signal with subscription in the calling class 
-    //effect can only be ussed in a constructor
-    //the subscription gets cleaned up when the component is destroyed
-    //we the signal values change the subscription will emit a new value
-    effect(() =>{
-      console.log(this.currentStatus_signal(), '--Signal value, with subscription--');
-    });
-  }
+  constructor(private route: ActivatedRoute) {}
 
   ngOnInit() {
-    // Access resolved data
-    this.data = this.route.snapshot.data['data'].dataFromService1;
+    this.isLoading.set(true);
 
-    // Set loading to false once data is ready
-    //this.isLoading = false;
-
-    //make isLoading a signal that utilizes update function
-    this.isLoading.update((wasLoading) => !wasLoading);
-
-    console.log(this.data); // Logs the resolved data
-
-    //Set the signal
-    this.currentStatus_signal.set('online');
+    this.route.data.subscribe(resolved => {
+      this.data = resolved['data'].dataFromService1;
+      this.isLoading.set(false);
+    });
   }
 
 
