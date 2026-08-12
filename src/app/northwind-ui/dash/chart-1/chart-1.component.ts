@@ -63,6 +63,8 @@ xlabels:string[] = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'];
 xFullLabels:string[] = [];
 ylabels:number[] =[0, 50, 100, this.max].reverse();
 
+isLoading:boolean = true;
+
 //donutChartType: ChartType = 'doughnut';
 donutChartType = 'doughnut' as const;
 donutChartData: ChartData<'doughnut'> = {
@@ -130,7 +132,7 @@ ngOnInit() {
   // 1. Load categories from API
   this._categoriesService.getCategories().subscribe(categories => {
     this.categories = categories;
-
+    this.isLoading = false;
     // Set defaults once categories arrive
     this.categorySalesForm.patchValue({
       category_name: categories[0].categoryName,

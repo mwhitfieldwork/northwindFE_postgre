@@ -1,5 +1,9 @@
+@if(isLoading){
+  <div class="loading-container">
+      <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+  </div>
+}@else {
 <div class="sales-shell">
-  
     <form [formGroup]="categorySalesForm" class="controls">
   
       <mat-form-field appearance="fill" class="field">
@@ -49,3 +53,4 @@
       </ng-template>
   }
 </div>
+}
