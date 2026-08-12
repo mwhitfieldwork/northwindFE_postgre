@@ -1,3 +1,8 @@
+@if(isLoading){
+    <div class="loading-container">
+        <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+    </div>
+  }@else {
 <mat-table mat-table [dataSource]="dataSource" matSort class="table-mat mat-elevation-z8">
     <ng-container matColumnDef="select">
         <th mat-header-cell *matHeaderCellDef class="select-row-tr">
@@ -49,3 +54,4 @@
     </mat-table>
 
     <mat-paginator [pageSizeOptions]="[5, 10, 20]"  showFirstLastButtons></mat-paginator>
+}

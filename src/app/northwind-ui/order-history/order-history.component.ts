@@ -71,6 +71,7 @@ ngAfterViewInit(): void {
     this.dataSource.data = data;
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
+    this.isLoading = false;
     console.log(data);
   });
 }
