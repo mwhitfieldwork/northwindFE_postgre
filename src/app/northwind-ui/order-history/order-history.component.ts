@@ -41,7 +41,6 @@ orderHistory: OrderDetails[] = [];
 paginator!: MatPaginator;
 
 @ViewChild(MatSort, {static: true}) sort!: MatSort;
-isLoading: boolean = false;
 
 
 displayedColumns: string[] = [
@@ -71,7 +70,6 @@ ngAfterViewInit(): void {
     this.dataSource.data = data;
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
-    this.isLoading = false;
     console.log(data);
   });
 }

@@ -25,7 +25,7 @@ bootstrapApplication(AppComponent,
   importProvidersFrom(MatSnackBarModule),
     //provideRouter(routes, withDebugTracing()), //see routes in console
     provideRouter(routes), 
-    provideAnimationsAsync()
+    provideAnimationsAsync(), provideAnimationsAsync()
   ]}
 )
   .catch((err) => console.error(err));
