@@ -20,7 +20,7 @@ import { combineLatest } from 'rxjs';
  Chart.register(DoughnutController, ArcElement, Tooltip, Legend);
 
 @Component({
-  selector: 'app-chart-1',
+  selector: 'app-donut-chart',
   standalone: true,
   imports: [
     ReactiveFormsModule, 
@@ -32,10 +32,10 @@ import { combineLatest } from 'rxjs';
     BaseChartDirective, 
     NgFor
   ],
-  templateUrl: './chart-1.component.html',
-  styleUrl: './chart-1.component.scss'
+  templateUrl: './donut-chart.component.html',
+  styleUrl: './donut-chart.component.scss'
 })
-export class Chart1Component implements OnInit {
+export class DonutChartComponent implements OnInit {
 
 rectWidth = 10;
 max:number = 250;

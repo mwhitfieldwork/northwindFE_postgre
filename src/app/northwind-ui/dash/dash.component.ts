@@ -2,7 +2,7 @@ import { Component, computed, effect, inject, OnInit, signal } from '@angular/co
 import { EmployeesComponent } from "../employees/employees.component";
 import { MatCardModule } from '@angular/material/card';
 import { StockInventoryComponent } from "../products/stock-inventory/stock-inventory.component";
-import { Chart1Component } from "./chart-1/chart-1.component";
+import { DonutChartComponent } from "./donut-chart/donut-chart.component";
 import { OrderHistoryComponent } from "../order-history/order-history.component";
 import { UserSessionService } from '../../utilities/services/user-session/user-session.service';
 import { ActivatedRoute } from '@angular/router';
@@ -18,7 +18,7 @@ import { BarChartComponent } from "./bar-chart/bar-chart.component";
     EmployeesComponent,
     MatCardModule,
     StockInventoryComponent,
-    Chart1Component,
+    DonutChartComponent,
     OrderHistoryComponent,
     TooltipDirective,
     CardBasicComponent,
