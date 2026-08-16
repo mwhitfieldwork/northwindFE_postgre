@@ -3,6 +3,7 @@ import { catchError, Observable, tap, throwError } from 'rxjs';
 import { BarOrderDetail } from '../../models/bar-order-detail';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../../../environments/environment';
+import { SalesTotal } from '../../models/salesTotal';
 @Injectable({
   providedIn: 'root'
 })
@@ -17,6 +18,16 @@ export class DashboardService {
     .pipe( 
       tap(items => {
         console.log(this.url,)
+      }),
+      catchError(this.handleError),
+    )
+  }
+
+  getSalesTotals(beginningDate: string, endingDate: string): Observable<SalesTotal[]> {
+    return this._http.get<SalesTotal[]>(`${this.url}/Dashboard/salestotals?beginningDate=${beginningDate}&endingDate=${endingDate}`)
+    .pipe( 
+      tap(items => {
+        console.log(this.url, '--sales totals');
       }),
       catchError(this.handleError),
     )
