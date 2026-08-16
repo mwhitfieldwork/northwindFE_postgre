@@ -11,6 +11,7 @@ import { CardBasicComponent } from '../../shared/card-basic/card-basic.component
 import { CurrencyPipe } from '@angular/common';
 import { Drivers } from '../../utilities/models/drivers';
 import { BarChartComponent } from "./bar-chart/bar-chart.component";
+import { SalesTotalCardsComponent } from "./sales-total-cards/sales-total-cards.component";
 @Component({
   selector: 'app-dash',
   standalone: true,
@@ -23,7 +24,8 @@ import { BarChartComponent } from "./bar-chart/bar-chart.component";
     TooltipDirective,
     CardBasicComponent,
     CurrencyPipe,
-    BarChartComponent
+    BarChartComponent,
+    SalesTotalCardsComponent
 ],
   templateUrl: './dash.component.html',
   styleUrl: './dash.component.scss'
