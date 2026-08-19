@@ -12,6 +12,7 @@ import { CurrencyPipe } from '@angular/common';
 import { Drivers } from '../../utilities/models/drivers';
 import { BarChartComponent } from "./bar-chart/bar-chart.component";
 import { SalesTotalCardsComponent } from "./sales-total-cards/sales-total-cards.component";
+import { DatePickerFilterComponent } from "../../shared/date-picker-filter/date-picker-filter.component";
 @Component({
   selector: 'app-dash',
   standalone: true,
@@ -25,7 +26,8 @@ import { SalesTotalCardsComponent } from "./sales-total-cards/sales-total-cards.
     CardBasicComponent,
     CurrencyPipe,
     BarChartComponent,
-    SalesTotalCardsComponent
+    SalesTotalCardsComponent,
+    DatePickerFilterComponent
 ],
   templateUrl: './dash.component.html',
   styleUrl: './dash.component.scss'
